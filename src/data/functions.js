@@ -16,7 +16,7 @@ export const averageTechImpactByCompanies = () => {
     const filtered = data.filter(patent => patent.Owner === owner);
 
     const techImpactSum = filtered.reduce((acc = 0, patent) => acc + parseFloat(patent["Impact score"].replace(',', '.')), 0)
-    return { owner: owner, nbr: filtered.length, avg: techImpactSum / filtered.length };
+    return { owner: owner, nbr: filtered.length, avg: (techImpactSum / filtered.length).toFixed(2) };
   })
     .sort((a, b) => b.nbr - a.nbr)
     .filter(item => item.nbr > 20)

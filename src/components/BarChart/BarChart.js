@@ -33,6 +33,7 @@ export default function BarChart({ data, comma, ordinate }) {
     const width = 1000;
     const margin = { top: 20, right: 30, bottom: 30, left: 40 };
 
+    const colors = (i) => i > 1 ? d3.interpolateOranges(i / 100) : d3.interpolateOranges(i);
     const x = d3
       .scaleBand()
       .domain(data.map((d) => d[comma]))
@@ -83,27 +84,50 @@ export default function BarChart({ data, comma, ordinate }) {
       .call(wrap, x.bandwidth())
 
 
-    svg.select(".y-axis").call(y1Axis);
+    // svg.select(".y-axis")
+    //   .call(y1Axis);
 
-    svg
+    const bars = svg
       .select(".plot-area")
-      .attr("fill", "#ff7332")
       .selectAll(".bar")
+
+    bars
       .data(data)
       .join("rect")
       .attr("class", "bar")
+      .attr("fill", d => colors(d[ordinate]))
       .attr("x", (d) => x(d[comma]))
       .attr("width", x.bandwidth())
       .attr("y", (d) => y(d[ordinate]))
-      .attr("height", (d) => y(0) - y(d[ordinate]))
+      .attr("height", (d) => 0)
       .on("mouseover", function (e) {
         d3.select(this)
           .attr("fill", "#ffab84")
       })
       .on("mouseleave", function () {
         d3.select(this)
-          .attr("fill", "#ff7332");
+          .attr("fill", d => colors(d[ordinate]));
       })
+      .transition()
+      .duration(750)
+      .attr("y", (d) => y(d[ordinate]))
+      .attr("height", (d) => y(0) - y(d[ordinate]))
+
+    bars.data(data)
+      .enter()
+      .append("text")
+      .text(d => d[ordinate])
+      .attr("y", d => y(d[ordinate]) - 10)
+      .attr("x", d => x(d[comma]) + x.bandwidth() / 2)
+      .attr("text-anchor", "middle")
+      .style("color", "#505050")
+      .style("font-family", "sans-serif")
+      .style("font-size", 12)
+      .style("opacity", 0)
+      .transition()
+      .duration(1500)
+      .style("opacity", 1);
+
 
   }, [data.length]);
 
