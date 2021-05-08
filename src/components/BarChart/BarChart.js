@@ -2,10 +2,8 @@ import { useD3 } from '../../hooks/useD3';
 import React from 'react'
 import * as d3 from 'd3';
 import "./BarChart.styles.css";
-import { patentsByCompanies } from "../../data/functions.js";
 
-export default function BarChart() {
-  const data = patentsByCompanies();
+export default function BarChart({ data, comma, ordinate }) {
 
   const wrap = (text, width) => {
     text.each(function () {
@@ -37,13 +35,13 @@ export default function BarChart() {
 
     const x = d3
       .scaleBand()
-      .domain(data.map((d) => d.owner))
+      .domain(data.map((d) => d[comma]))
       .rangeRound([margin.left, width - margin.right])
       .padding(0.1);
 
     const y = d3
       .scaleLinear()
-      .domain([0, d3.max(data, (d) => d.nbr)]).nice()
+      .domain([0, d3.max(data, (d) => d[ordinate])]).nice()
       .rangeRound([height - margin.bottom, margin.top]);
 
     const xAxis = (g) =>
@@ -94,10 +92,10 @@ export default function BarChart() {
       .data(data)
       .join("rect")
       .attr("class", "bar")
-      .attr("x", (d) => x(d.owner))
+      .attr("x", (d) => x(d[comma]))
       .attr("width", x.bandwidth())
-      .attr("y", (d) => y(d.nbr))
-      .attr("height", (d) => y(0) - y(d.nbr))
+      .attr("y", (d) => y(d[ordinate]))
+      .attr("height", (d) => y(0) - y(d[ordinate]))
       .on("mouseover", function (e) {
         d3.select(this)
           .attr("fill", "#ffab84")
