@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/focus-case/static/css/main.614161f5.chunk.css",
-    "main.js": "/focus-case/static/js/main.f5f72beb.chunk.js",
-    "main.js.map": "/focus-case/static/js/main.f5f72beb.chunk.js.map",
+    "main.css": "/focus-case/static/css/main.fa5066c4.chunk.css",
+    "main.js": "/focus-case/static/js/main.1578dee5.chunk.js",
+    "main.js.map": "/focus-case/static/js/main.1578dee5.chunk.js.map",
     "runtime-main.js": "/focus-case/static/js/runtime-main.0648f7e7.js",
     "runtime-main.js.map": "/focus-case/static/js/runtime-main.0648f7e7.js.map",
     "static/js/2.2b12ef52.chunk.js": "/focus-case/static/js/2.2b12ef52.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.fbd617af.chunk.js": "/focus-case/static/js/3.fbd617af.chunk.js",
     "static/js/3.fbd617af.chunk.js.map": "/focus-case/static/js/3.fbd617af.chunk.js.map",
     "index.html": "/focus-case/index.html",
-    "static/css/main.614161f5.chunk.css.map": "/focus-case/static/css/main.614161f5.chunk.css.map",
+    "static/css/main.fa5066c4.chunk.css.map": "/focus-case/static/css/main.fa5066c4.chunk.css.map",
     "static/js/2.2b12ef52.chunk.js.LICENSE.txt": "/focus-case/static/js/2.2b12ef52.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0648f7e7.js",
     "static/js/2.2b12ef52.chunk.js",
-    "static/css/main.614161f5.chunk.css",
-    "static/js/main.f5f72beb.chunk.js"
+    "static/css/main.fa5066c4.chunk.css",
+    "static/js/main.1578dee5.chunk.js"
   ]
 }
