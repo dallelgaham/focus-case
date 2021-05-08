@@ -64,12 +64,27 @@ export default function LineChart({ data, comma, ordinate }) {
     const line = d3.line()
       .x(d => x(d["year"]) + x.bandwidth() / 2)
       .y(d => y(d["nbr"]))
+
+
     svg.append("path")
       .attr("fill", "none")
-      .attr("stroke", "currentColor")
-      .attr("stroke-miterlimit", 1)
-      .attr("stroke-width", 3)
-      .attr("d", line(data));
+      .attr("stroke", "#ffab84")
+      .attr("stroke-linejoin", "round")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-width", 2)
+      .attr("d", line(data))
+      .attr("opacity", 0)
+      .transition()
+      .duration(750)
+      .attr('opacity', 1)
+
+    // function updatePath(data, line) {
+    //   const updatedPath = d3
+    //     .select("path")
+
+    // }
+    // const pathLength = updatedPath.node().getTotalLength();
+
 
     // svg
     //   .select(".plot-area")
