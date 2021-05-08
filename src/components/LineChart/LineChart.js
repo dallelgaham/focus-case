@@ -7,8 +7,8 @@ import "./LineChart.styles.css";
 export default function LineChart({ data, comma, ordinate }) {
   const ref = useD3((svg) => {
     const height = 500;
-    const width = 700;
-    const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+    const width = 1000;
+    const margin = { top: 20, right: 60, bottom: 30, left: 60 };
 
     const x = d3
       .scaleBand()
@@ -23,7 +23,7 @@ export default function LineChart({ data, comma, ordinate }) {
 
     const xAxis = (g) =>
       g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .style("color", "#505050")
+        .style("color", "#4b5563")
         .call(
           d3
             .axisBottom(x)
@@ -33,7 +33,7 @@ export default function LineChart({ data, comma, ordinate }) {
     const y1Axis = (g) =>
       g
         .attr("transform", `translate(${margin.left},0)`)
-        .style("color", "#505050")
+        .style("color", "#4b5563")
         .call(
           d3.axisLeft(y)
             .tickSizeOuter(0)

@@ -47,7 +47,7 @@ export default function BarChart({ data, comma, ordinate }) {
 
     const xAxis = (g) =>
       g.attr("transform", `translate(0,${height - margin.bottom})`)
-        .style("color", "#505050")
+        .style("color", "#4b5563")
         .call(
           d3
             .axisBottom(x)
@@ -57,7 +57,7 @@ export default function BarChart({ data, comma, ordinate }) {
     const y1Axis = (g) =>
       g
         .attr("transform", `translate(${margin.left},0)`)
-        .style("color", "#505050")
+        .style("color", "#4b5563")
         .call(
           d3.axisLeft(y)
             .tickSizeOuter(0)
@@ -120,7 +120,7 @@ export default function BarChart({ data, comma, ordinate }) {
       .attr("y", d => y(d[ordinate]) - 10)
       .attr("x", d => x(d[comma]) + x.bandwidth() / 2)
       .attr("text-anchor", "middle")
-      .style("color", "#505050")
+      .style("color", "#4b5563")
       .style("font-family", "sans-serif")
       .style("font-size", 12)
       .style("opacity", 0)

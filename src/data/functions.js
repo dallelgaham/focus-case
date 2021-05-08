@@ -8,7 +8,7 @@ export const patentsByCompanies = () => {
     return { owner: owner, nbr: filtered.length };
   })
     .sort((a, b) => b.nbr - a.nbr)
-    .slice(0, 10)
+    .filter(item => item.nbr > 20)
 }
 
 export const averageTechImpactByCompanies = () => {
