@@ -123,7 +123,7 @@ export default function BarChart({ data, comma, ordinate }) {
       .attr("y", d => y(d[ordinate]) - 10)
       .attr("x", d => x(d[comma]) + x.bandwidth() / 2)
       .attr("text-anchor", "middle")
-      .style("color", "#4b5563")
+      .style("fill", "#505050")
       .style("font-family", "sans-serif")
       .style("font-size", 12)
       .style("opacity", 0)
