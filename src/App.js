@@ -1,4 +1,3 @@
-import './App.css';
 import BarChartContainer from './containers/BarChartContainer';
 import AvgTechImpactChart from './containers/AvgTechImpactChart';
 import PatentingTrendChart from './containers/PatentingTrendChart';

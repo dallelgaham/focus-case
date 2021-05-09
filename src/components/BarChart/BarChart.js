@@ -74,7 +74,7 @@ export default function BarChart({ data, comma, ordinate }) {
 
 
     svg.select(".x-axis")
-      .call((g) => g.select(".domain").remove())
+      //.call((g) => g.select(".domain").remove())
       .call(xAxis)
       .selectAll(".tick text")
       .style("text-anchor", "middle")
@@ -83,9 +83,12 @@ export default function BarChart({ data, comma, ordinate }) {
       .attr("dy", "1em")
       .call(wrap, x.bandwidth())
 
+    svg.select('.x-axis').append("text").text("Companies")
+      .attr("x", width)
+      .style("color", "#505050")
 
-    // svg.select(".y-axis")
-    //   .call(y1Axis);
+    svg.select(".y-axis")
+      .call(y1Axis);
 
     const bars = svg
       .select(".plot-area")
@@ -127,7 +130,6 @@ export default function BarChart({ data, comma, ordinate }) {
       .transition()
       .duration(1500)
       .style("opacity", 1);
-
 
   }, [data.length]);
 

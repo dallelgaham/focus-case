@@ -6,7 +6,3 @@ body {
   margin: 0;
   @apply bg-gray-50;
 }
-
-.plot-area {
-  background-color: red !important;
-}
